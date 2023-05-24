@@ -19,13 +19,13 @@ class SystemPanel(ScreenPanel):
 
         reboot = self._gtk.Button('refresh', _('Restart'), 'color3')
         reboot.connect("clicked", self.reboot_poweroff, "reboot")
-        reboot.set_vexpand(False)
+        reboot.set_vexpand(True)
         shutdown = self._gtk.Button('shutdown', _('Shutdown'), 'color4')
         shutdown.connect("clicked", self.reboot_poweroff, "poweroff")
-        shutdown.set_vexpand(False)
+        shutdown.set_vexpand(True)
 
-        grid.attach(reboot, 2, 2, 1, 1)
-        grid.attach(shutdown, 3, 2, 1, 1)
+        grid.attach(reboot, 0, 1, 1, 1)
+        grid.attach(shutdown, 1, 1, 1, 1)
         self.content.add(grid)
 
     def restart(self, widget, program):
