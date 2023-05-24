@@ -19,7 +19,6 @@ class MovePanel(ScreenPanel):
 
     def __init__(self, screen, title):
         super().__init__(screen, title)
-        self.settings = {}
         self.menu = ['move_menu']
         self.buttons = {
             'x+': self._gtk.Button("arrow-right", "X+", "color1"),
@@ -116,7 +115,6 @@ class MovePanel(ScreenPanel):
         bottomgrid.attach(self.labels['pos_y'], 1, 0, 1, 1)
         bottomgrid.attach(self.labels['pos_z'], 2, 0, 1, 1)
         bottomgrid.attach(self.labels['move_dist'], 0, 1, 3, 1)
-        bottomgrid.attach(adjust, 3, 0, 1, 2)
 
         self.labels['move_menu'] = self._gtk.HomogeneousGrid()
         self.labels['move_menu'].attach(grid, 0, 0, 1, 3)
@@ -124,33 +122,6 @@ class MovePanel(ScreenPanel):
         self.labels['move_menu'].attach(distgrid, 0, 4, 1, 1)
 
         self.content.add(self.labels['move_menu'])
-
-        printer_cfg = self._printer.get_config_section("printer")
-        # The max_velocity parameter is not optional in klipper config.
-        max_velocity = int(float(printer_cfg["max_velocity"]))
-        if "max_z_velocity" in printer_cfg:
-            max_z_velocity = int(float(printer_cfg["max_z_velocity"]))
-        else:
-            max_z_velocity = max_velocity
-
-        configurable_options = [
-            {"invert_x": {"section": "main", "name": _("Invert X"), "type": "binary", "value": "False"}},
-            {"invert_y": {"section": "main", "name": _("Invert Y"), "type": "binary", "value": "False"}},
-            {"invert_z": {"section": "main", "name": _("Invert Z"), "type": "binary", "value": "False"}},
-            {"move_speed_xy": {
-                "section": "main", "name": _("XY Speed (mm/s)"), "type": "scale", "value": "50",
-                "range": [1, max_velocity], "step": 1}},
-            {"move_speed_z": {
-                "section": "main", "name": _("Z Speed (mm/s)"), "type": "scale", "value": "10",
-                "range": [1, max_z_velocity], "step": 1}}
-        ]
-
-        self.labels['options_menu'] = self._gtk.ScrolledWindow()
-        self.labels['options'] = Gtk.Grid()
-        self.labels['options_menu'].add(self.labels['options'])
-        for option in configurable_options:
-            name = list(option)[0]
-            self.add_option('options', self.settings, name, option[name])
 
     def process_busy(self, busy):
         buttons = ("home", "home_xy", "z_tilt", "quad_gantry_level")
@@ -207,57 +178,6 @@ class MovePanel(ScreenPanel):
         self._screen._ws.klippy.gcode_script(f"{KlippyGcodes.MOVE_RELATIVE}\n{KlippyGcodes.MOVE} {axis}{dist} F{speed}")
         if self._printer.get_stat("gcode_move", "absolute_coordinates"):
             self._screen._ws.klippy.gcode_script("G90")
-
-    def add_option(self, boxname, opt_array, opt_name, option):
-        name = Gtk.Label()
-        name.set_markup(f"<big><b>{option['name']}</b></big>")
-        name.set_hexpand(True)
-        name.set_vexpand(True)
-        name.set_halign(Gtk.Align.START)
-        name.set_valign(Gtk.Align.CENTER)
-        name.set_line_wrap(True)
-        name.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR)
-
-        dev = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=5)
-        dev.get_style_context().add_class("frame-item")
-        dev.set_hexpand(True)
-        dev.set_vexpand(False)
-        dev.set_valign(Gtk.Align.CENTER)
-        dev.add(name)
-
-        if option['type'] == "binary":
-            box = Gtk.Box()
-            box.set_vexpand(False)
-            switch = Gtk.Switch()
-            switch.set_hexpand(False)
-            switch.set_vexpand(False)
-            switch.set_active(self._config.get_config().getboolean(option['section'], opt_name))
-            switch.connect("notify::active", self.switch_config_option, option['section'], opt_name)
-            switch.set_property("width-request", round(self._gtk.font_size * 7))
-            switch.set_property("height-request", round(self._gtk.font_size * 3.5))
-            box.add(switch)
-            dev.add(box)
-        elif option['type'] == "scale":
-            dev.set_orientation(Gtk.Orientation.VERTICAL)
-            scale = Gtk.Scale.new_with_range(orientation=Gtk.Orientation.HORIZONTAL,
-                                             min=option['range'][0], max=option['range'][1], step=option['step'])
-            scale.set_hexpand(True)
-            scale.set_value(int(self._config.get_config().get(option['section'], opt_name, fallback=option['value'])))
-            scale.set_digits(0)
-            scale.connect("button-release-event", self.scale_moved, option['section'], opt_name)
-            dev.add(scale)
-
-        opt_array[opt_name] = {
-            "name": option['name'],
-            "row": dev
-        }
-
-        opts = sorted(list(opt_array), key=lambda x: opt_array[x]['name'])
-        pos = opts.index(opt_name)
-
-        self.labels[boxname].insert_row(pos)
-        self.labels[boxname].attach(opt_array[opt_name]['row'], 0, pos, 1, 1)
-        self.labels[boxname].show_all()
 
     def back(self):
         if len(self.menu) > 1:
