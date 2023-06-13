@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.1\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #, python-format
 msgid "%s will be updated to version"
@@ -24,7 +24,7 @@ msgid "24 Hour Time"
 msgstr "24時間表記"
 
 msgid "A FIRMWARE_RESTART may fix the issue."
-msgstr "ファームウェアの更新を行うと不具合が解決する場合があります"
+msgstr "ファームウェアの再起動を行うと不具合が解決する場合があります"
 
 msgid "ADXL Not Configured"
 msgstr "ADXL が構成されていません"
@@ -36,7 +36,7 @@ msgid "Acceleration:"
 msgstr "加速度:"
 
 msgid "Accept"
-msgstr "承諾する"
+msgstr "適用する"
 
 msgid "Actions"
 msgstr "操作"
@@ -53,7 +53,7 @@ msgstr ""
 
 #, python-format
 msgid "Apply %s%.3f offset to Probe?"
-msgstr ""
+msgstr "プローブに %s%.3f のオフセットを適用しますか？"
 
 msgid "Are you sure do you want to exclude the object?"
 msgstr "対象を除外しますか？"
@@ -205,7 +205,10 @@ msgid "Extra Large"
 msgstr "特大"
 
 msgid "Extrude"
-msgstr "吐出"
+msgstr "押し出し"
+
+msgid "Extruder"
+msgstr "エクストルーダー"
 
 msgid "Extrusion +"
 msgstr "吐出＋"
@@ -241,7 +244,7 @@ msgid "Finding ADXL"
 msgstr "ADXLを検索中"
 
 msgid "Fine Tuning"
-msgstr "Fine Tuning"
+msgstr "調整"
 
 msgid "Finish"
 msgstr "完了"
@@ -286,19 +289,19 @@ msgid "Home All"
 msgstr ""
 
 msgid "Home X"
-msgstr "Home X"
+msgstr ""
 
 msgid "Home XY"
-msgstr "Home XY"
+msgstr ""
 
 msgid "Home Y"
-msgstr "Home Y"
+msgstr ""
 
 msgid "Home Z"
-msgstr "Home Z"
+msgstr ""
 
 msgid "Homing"
-msgstr "Homing"
+msgstr ""
 
 msgid "Host"
 msgstr ""
@@ -364,16 +367,16 @@ msgid "Layer:"
 msgstr "レイヤー:"
 
 msgid "Left:"
-msgstr "左:"
+msgstr "推定時間:"
 
 msgid "Limits"
 msgstr "制限"
 
 msgid "Load"
-msgstr ""
+msgstr "ロード"
 
 msgid "Lower Nozzle"
-msgstr "ノズルが低い"
+msgstr "ノズルを近づける"
 
 msgid "Macro shortcut on sidebar"
 msgstr "サイドバーのマクロショートカット"
@@ -439,7 +442,7 @@ msgid "Never"
 msgstr "未"
 
 msgid "New"
-msgstr "新"
+msgstr "新しい値"
 
 msgid ""
 "Not supported for auto-detection, it needs to be configured in klipperscreen."
@@ -488,10 +491,13 @@ msgid "Power On Printer"
 msgstr "プリンター電源"
 
 msgid "Pressure Advance:"
-msgstr ""
+msgstr "プレッシャーアドバンス:"
 
 msgid "Print"
 msgstr "印刷"
+
+msgid "Print again"
+msgstr "再印刷"
 
 msgid "Print Control"
 msgstr "印刷制御"
@@ -524,7 +530,7 @@ msgid "Quad Gantry Level"
 msgstr "ガントリーレベル"
 
 msgid "Raise Nozzle"
-msgstr ""
+msgstr "ノズルを離す"
 
 msgid "Recover"
 msgstr ""
@@ -551,7 +557,7 @@ msgid "Resume"
 msgstr "再開"
 
 msgid "Retract"
-msgstr "リトラクトする"
+msgstr "引き込み"
 
 msgid "Retraction"
 msgstr "リトラクション"
@@ -581,17 +587,17 @@ msgid "Save configuration?"
 msgstr "設定を保存しますか？"
 
 msgid "Saved"
-msgstr "保存しました"
+msgstr "保存済の値"
 
 #, python-format
 msgid "Saved offset: %s"
-msgstr "保存しました offset: %s"
+msgstr "保存済のオフセット値: %s"
 
 msgid "Screen DPMS"
-msgstr ""
+msgstr "スクリーンの省電力管理"
 
 msgid "Screen Power Off Time"
-msgstr ""
+msgstr "画面の電源オフ時間"
 
 msgid "Screws Adjust"
 msgstr ""
@@ -612,7 +618,7 @@ msgid "Show"
 msgstr "表示"
 
 msgid "Show Heater Power"
-msgstr ""
+msgstr "ヒーター出力を表示する"
 
 msgid "Shutdown"
 msgstr "シャットダウン"
@@ -633,16 +639,16 @@ msgid "Small"
 msgstr "小"
 
 msgid "Speed (mm/s)"
-msgstr ""
+msgstr "速度 (mm/s)"
 
 msgid "Speed +"
-msgstr ""
+msgstr "速度 +"
 
 msgid "Speed -"
-msgstr ""
+msgstr "速度 -"
 
 msgid "Speed:"
-msgstr ""
+msgstr "速度:"
 
 msgid "Square Corner Velocity"
 msgstr "四隅の速度"
@@ -714,16 +720,16 @@ msgid "Z Calibrate"
 msgstr "Z軸 校正"
 
 msgid "Z Move Speed (mm/s)"
-msgstr "X軸 移動速度 (mm/s)"
+msgstr "Z軸 移動速度 (mm/s)"
 
 msgid "Z Speed (mm/s)"
-msgstr ""
+msgstr "Z速度 (mm/s)"
 
 msgid "Z Tilt"
-msgstr ""
+msgstr "Z チルト"
 
 msgid "Z offset:"
-msgstr ""
+msgstr "Z オフセット:"
 
 msgid "commit"
 msgid_plural "commits"
