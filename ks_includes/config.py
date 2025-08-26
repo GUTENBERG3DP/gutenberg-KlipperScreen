@@ -222,7 +222,7 @@ class KlipperScreenConfig:
             {"language": {
                 "section": "main", "name": _("Language"), "type": "dropdown", "value": "system_lang",
                 "callback": screen.change_language, "options": [
-                    {"name": _("System") + " " + _("(default)"), "value": "system_lang"}]}},
+                    {"name": _("(default)"), "value": "system_lang"}]}},
             {"theme": {
                 "section": "main", "name": _("Icon Theme"), "type": "dropdown",
                 "value": "z-bolt", "callback": screen.restart_ks, "options": [

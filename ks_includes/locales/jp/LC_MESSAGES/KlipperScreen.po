@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.7\n"
 
 #, python-format
 msgid "%s will be updated to version"
@@ -445,8 +445,8 @@ msgid "New"
 msgstr "新しい値"
 
 msgid ""
-"Not supported for auto-detection, it needs to be configured in klipperscreen."
-"conf"
+"Not supported for auto-detection, it needs to be configured in "
+"klipperscreen.conf"
 msgstr ""
 
 msgid "Nothing selected"
@@ -666,7 +666,7 @@ msgid "Starting update for"
 msgstr "更新中"
 
 msgid "System"
-msgstr "システム"
+msgstr "電源"
 
 msgid "System Restart"
 msgstr "システムの再起動"
@@ -717,7 +717,7 @@ msgid "XY Speed (mm/s)"
 msgstr "XY速度 (mm/s)"
 
 msgid "Z Calibrate"
-msgstr "Z軸 校正"
+msgstr "Z軸距離の初期化"
 
 msgid "Z Move Speed (mm/s)"
 msgstr "Z軸 移動速度 (mm/s)"
