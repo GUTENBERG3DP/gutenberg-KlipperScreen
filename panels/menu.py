@@ -115,6 +115,8 @@ class MenuPanel(ScreenPanel):
         elif enable == "{{ camera_configured }}":
             return self.ks_printer_cfg and self.ks_printer_cfg.get("camera_url", None) is not None
         self.j2_data = self._printer.get_printer_status_data()
+        # Add configuration variables to the template context
+        self.j2_data['side_macro_shortcut'] = self._config.get_main_config().getboolean('side_macro_shortcut', True)
         try:
             j2_temp = Template(enable, autoescape=True)
             result = j2_temp.render(self.j2_data)
