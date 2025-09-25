@@ -38,7 +38,7 @@ class ExtrudePanel(ScreenPanel):
                     self.speeds = vel
 
         self.distance = int(self.distances[1])
-        self.speed = int(self.speeds[1])
+        self.speed = int(self.speeds[0])
         self.buttons = {
             'extrude': self._gtk.Button("extrude", _("Extrude"), "color4"),
             'load': self._gtk.Button("arrow-down", _("Load"), "color3"),
